@@ -1,0 +1,14 @@
+{
+    "name": "devscode/entreamigos",
+    "autoload": {
+        "psr-4": {
+            "Devscode\\Entreamigos\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "DevsCode"
+        }
+    ],
+    "require": {}
+}
