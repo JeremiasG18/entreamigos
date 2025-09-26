@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-09-2025 a las 03:08:47
+-- Tiempo de generación: 26-09-2025 a las 02:59:16
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -47,7 +47,9 @@ CREATE TABLE `complejos` (
   `telefono` varchar(10) DEFAULT NULL,
   `ubicacion` varchar(100) DEFAULT NULL,
   `longitud` varchar(100) DEFAULT NULL,
-  `latitud` varchar(100) DEFAULT NULL
+  `latitud` varchar(100) DEFAULT NULL,
+  `foto_url` varchar(500) DEFAULT NULL,
+  `id_mp` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -118,6 +120,14 @@ CREATE TABLE `roles` (
   `descripcion` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `roles`
+--
+
+INSERT INTO `roles` (`id`, `descripcion`) VALUES
+(1, 'Administrador'),
+(2, 'Usuario');
+
 -- --------------------------------------------------------
 
 --
@@ -145,6 +155,13 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `id_roles`, `nombre`, `apellido`, `correo`, `contrasena`) VALUES
+(1, 2, 'Jeremias', 'Gonzalez', 'jeregonza194@gmail.com', '$2y$10$8hFFhmEjNNdYjuHOW26bG.O24dMxEFkqNUg9IX7parD');
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -161,6 +178,7 @@ ALTER TABLE `canchas`
 --
 ALTER TABLE `complejos`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id_mp` (`id_mp`),
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
@@ -256,7 +274,7 @@ ALTER TABLE `reservas`
 -- AUTO_INCREMENT de la tabla `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `tipos`
@@ -268,7 +286,7 @@ ALTER TABLE `tipos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas

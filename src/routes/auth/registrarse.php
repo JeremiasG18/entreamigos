@@ -6,9 +6,10 @@ $user = new UserController;
 
 switch ($url) {
     case 'registrarse':
-        $user->guardar($data);
+        $user->guardar();
         break;
-    
+    case 'registrarComplejo':
+        $user->guardarComplejo();
     default:
         respuesta([
             'status' => 'error',

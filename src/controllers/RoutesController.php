@@ -24,7 +24,7 @@ class RoutesController{
     public function post(string $url, ?string $data){
         $let_url_u = [''];
         $let_url_a = [''];
-        $other_url = ['registrarse'];
+        $other_url = ['registrarse', 'registrarComplejo'];
 
         if (in_array($url, $let_url_u)) {
              

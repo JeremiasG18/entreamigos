@@ -24,6 +24,9 @@ if (count($url) === 0) {
     exit;
 }
 
+// respuesta([
+//     'data' => $_POST
+// ]);
 
 $router = new RoutesController;
 $uri = !empty($url[1]) ? $url[1] : '';
