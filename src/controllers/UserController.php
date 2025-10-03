@@ -67,13 +67,18 @@ class UserController {
             ], 422);
         }
         
-        respuesta([
-            'status' => 'ok',
-            'data' => [
-                'nombre' => $nombre,
-                'apellido' => $apellido
-            ]
-        ], 200);
+        # Encriptar la contraseña
+        $contrasena = password_hash($contrasena, PASSWORD_BCRYPT);
+
+        
+
+        // respuesta([
+        //     'status' => 'ok',
+        //     'data' => [
+        //         'nombre' => $nombre,
+        //         'apellido' => $apellido
+        //     ]
+        // ], 200);
     }
 
     public function update($id) {
