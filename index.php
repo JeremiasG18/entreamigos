@@ -17,16 +17,12 @@ $url = explode('/', $_SERVER['REQUEST_URI']);
 $url = array_filter($url);
 
 if (count($url) === 0) {
-    respuesta([
+    response([
         'status' => 'error',
         'message' => 'Method not allowed'
     ], 405);
     exit;
 }
-
-// respuesta([
-//     'data' => $_POST
-// ]);
 
 $router = new RoutesController;
 $uri = !empty($url[1]) ? $url[1] : '';

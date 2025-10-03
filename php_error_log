@@ -1566,3 +1566,85 @@ Stack trace:
 [25-Sep-2025 04:33:24 Europe/Berlin] PHP Warning:  Undefined array key "foto_complejo" in F:\sys\entreamigos\src\controllers\UserController.php on line 127
 [25-Sep-2025 04:40:38 Europe/Berlin] PHP Warning:  Undefined array key "foto_complejo" in F:\sys\entreamigos\src\controllers\UserController.php on line 127
 [25-Sep-2025 05:06:06 Europe/Berlin] PHP Warning:  Undefined variable $data in F:\sys\entreamigos\index.php on line 28
+[26-Sep-2025 03:47:40 Europe/Berlin] PHP Warning:  Undefined array key "tmp_name" in F:\sys\entreamigos\src\controllers\UserController.php on line 137
+[26-Sep-2025 05:32:10 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, bool given in F:\sys\entreamigos\src\controllers\UserController.php:162
+Stack trace:
+#0 F:\sys\entreamigos\src\controllers\UserController.php(162): count(false)
+#1 F:\sys\entreamigos\src\routes\auth\registrarse.php(12): Devscode\Entreamigos\controllers\UserController->guardarComplejo()
+#2 F:\sys\entreamigos\src\controllers\RoutesController.php(34): require_once('F:\\sys\\entreami...')
+#3 F:\sys\entreamigos\index.php(40): Devscode\Entreamigos\controllers\RoutesController->post('registrarComple...', '')
+#4 {main}
+  thrown in F:\sys\entreamigos\src\controllers\UserController.php on line 162
+[26-Sep-2025 06:41:17 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, bool given in F:\sys\entreamigos\src\controllers\UserController.php:86
+Stack trace:
+#0 F:\sys\entreamigos\src\controllers\UserController.php(86): count(false)
+#1 F:\sys\entreamigos\src\routes\auth\registrarse.php(9): Devscode\Entreamigos\controllers\UserController->guardar()
+#2 F:\sys\entreamigos\src\controllers\RoutesController.php(34): require_once('F:\\sys\\entreami...')
+#3 F:\sys\entreamigos\index.php(40): Devscode\Entreamigos\controllers\RoutesController->post('registrarse', '')
+#4 {main}
+  thrown in F:\sys\entreamigos\src\controllers\UserController.php on line 86
+[01-Oct-2025 03:37:40 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "UserValidator" not found in F:\sys\entreamigos\src\controllers\UserController.php:47
+Stack trace:
+#0 F:\sys\entreamigos\src\routes\auth\registrarse.php(9): Devscode\Entreamigos\controllers\UserController->guardar()
+#1 F:\sys\entreamigos\src\controllers\RoutesController.php(34): require_once('F:\\sys\\entreami...')
+#2 F:\sys\entreamigos\index.php(40): Devscode\Entreamigos\controllers\RoutesController->post('registrarse', '')
+#3 {main}
+  thrown in F:\sys\entreamigos\src\controllers\UserController.php on line 47
+[01-Oct-2025 03:38:38 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "UserValidator" not found in F:\sys\entreamigos\src\controllers\UserController.php:47
+Stack trace:
+#0 F:\sys\entreamigos\src\routes\auth\registrarse.php(9): Devscode\Entreamigos\controllers\UserController->guardar()
+#1 F:\sys\entreamigos\src\controllers\RoutesController.php(34): require_once('F:\\sys\\entreami...')
+#2 F:\sys\entreamigos\index.php(40): Devscode\Entreamigos\controllers\RoutesController->post('registrarse', '')
+#3 {main}
+  thrown in F:\sys\entreamigos\src\controllers\UserController.php on line 47
+[01-Oct-2025 03:48:25 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: respuesta(): Argument #1 ($data) must be of type array, string given, called in F:\sys\entreamigos\src\controllers\UserController.php on line 49 and defined in F:\sys\entreamigos\src\helpers\helper.php:3
+Stack trace:
+#0 F:\sys\entreamigos\src\controllers\UserController.php(49): respuesta('Jerem')
+#1 F:\sys\entreamigos\src\routes\auth\registrarse.php(9): Devscode\Entreamigos\controllers\UserController->guardar()
+#2 F:\sys\entreamigos\src\controllers\RoutesController.php(34): require_once('F:\\sys\\entreami...')
+#3 F:\sys\entreamigos\index.php(40): Devscode\Entreamigos\controllers\RoutesController->post('registrarse', '')
+#4 {main}
+  thrown in F:\sys\entreamigos\src\helpers\helper.php on line 3
+[01-Oct-2025 20:14:15 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in F:\sys\entreamigos\src\controllers\UserController.php on line 49
+[01-Oct-2025 20:17:31 Europe/Berlin] PHP Fatal error:  Uncaught Error: Non-static method Devscode\Entreamigos\models\DBModel::con() cannot be called statically in F:\sys\entreamigos\src\repository\UserRepository.php:13
+Stack trace:
+#0 F:\sys\entreamigos\src\controllers\UserController.php(54): Devscode\Entreamigos\repository\UserRepository::verificarCorreo('josu@gmail.com')
+#1 F:\sys\entreamigos\src\routes\auth\registrarse.php(9): Devscode\Entreamigos\controllers\UserController->guardar()
+#2 F:\sys\entreamigos\src\controllers\RoutesController.php(34): require_once('F:\\sys\\entreami...')
+#3 F:\sys\entreamigos\index.php(40): Devscode\Entreamigos\controllers\RoutesController->post('registrarse', '')
+#4 {main}
+  thrown in F:\sys\entreamigos\src\repository\UserRepository.php on line 13
+[02-Oct-2025 03:31:32 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, stdClass given in F:\sys\entreamigos\src\controllers\UserController.php:200
+Stack trace:
+#0 F:\sys\entreamigos\src\controllers\UserController.php(200): count(Object(stdClass))
+#1 F:\sys\entreamigos\src\routes\auth\registrarse.php(20): Devscode\Entreamigos\controllers\UserController->olvidoContrasena()
+#2 F:\sys\entreamigos\src\controllers\RoutesController.php(34): require_once('F:\\sys\\entreami...')
+#3 F:\sys\entreamigos\index.php(40): Devscode\Entreamigos\controllers\RoutesController->post('olvidoContrasen...', '')
+#4 {main}
+  thrown in F:\sys\entreamigos\src\controllers\UserController.php on line 200
+[02-Oct-2025 03:50:10 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '243536343' for key 'id_mp' in F:\sys\entreamigos\src\repository\UserRepository.php:62
+Stack trace:
+#0 F:\sys\entreamigos\src\repository\UserRepository.php(62): PDOStatement->execute(Array)
+#1 F:\sys\entreamigos\src\controllers\UserController.php(135): Devscode\Entreamigos\repository\UserRepository->guardarComplejo(4, 'Futbol5 Garc\xC3\xADa', '3704603563', 'B\xC2\xB0 Los Inmigra...', '-26.1494346', '-58.1576162', 'src/uploads/fil...', 243536343)
+#2 F:\sys\entreamigos\src\routes\auth\registrarse.php(16): Devscode\Entreamigos\controllers\UserController->guardarComplejo()
+#3 F:\sys\entreamigos\src\controllers\RoutesController.php(34): require_once('F:\\sys\\entreami...')
+#4 F:\sys\entreamigos\index.php(40): Devscode\Entreamigos\controllers\RoutesController->post('registrarComple...', '')
+#5 {main}
+  thrown in F:\sys\entreamigos\src\repository\UserRepository.php on line 62
+[02-Oct-2025 04:04:53 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in F:\sys\entreamigos\src\repository\UserRepository.php:81
+Stack trace:
+#0 F:\sys\entreamigos\src\controllers\UserController.php(184): Devscode\Entreamigos\repository\UserRepository->getPassword('lio@gmail.com')
+#1 F:\sys\entreamigos\src\routes\auth\registrarse.php(18): Devscode\Entreamigos\controllers\UserController->iniciarSesion()
+#2 F:\sys\entreamigos\src\controllers\RoutesController.php(34): require_once('F:\\sys\\entreami...')
+#3 F:\sys\entreamigos\index.php(40): Devscode\Entreamigos\controllers\RoutesController->post('iniciarSesion', '')
+#4 {main}
+  thrown in F:\sys\entreamigos\src\repository\UserRepository.php on line 81
+[02-Oct-2025 04:20:23 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: respuesta(): Argument #1 ($data) must be of type array, string given, called in F:\sys\entreamigos\src\repository\UserRepository.php on line 81 and defined in F:\sys\entreamigos\src\helpers\helper.php:3
+Stack trace:
+#0 F:\sys\entreamigos\src\repository\UserRepository.php(81): respuesta('$2y$10$uI7r9l1P...')
+#1 F:\sys\entreamigos\src\controllers\UserController.php(188): Devscode\Entreamigos\repository\UserRepository->getPassword('lio@gmail.com')
+#2 F:\sys\entreamigos\src\routes\auth\registrarse.php(18): Devscode\Entreamigos\controllers\UserController->iniciarSesion()
+#3 F:\sys\entreamigos\src\controllers\RoutesController.php(34): require_once('F:\\sys\\entreami...')
+#4 F:\sys\entreamigos\index.php(40): Devscode\Entreamigos\controllers\RoutesController->post('iniciarSesion', '')
+#5 {main}
+  thrown in F:\sys\entreamigos\src\helpers\helper.php on line 3
