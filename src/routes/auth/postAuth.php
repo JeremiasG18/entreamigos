@@ -3,10 +3,12 @@
 use Devscode\Entreamigos\controllers\UserController;
 use Devscode\Entreamigos\repository\UserRepository;
 use Devscode\Entreamigos\validators\UserValidator;
+use PHPMailer\PHPMailer\PHPMailer;
 
 $user_repository = new UserRepository;
 $user_validator = new UserValidator;
-$user = new UserController($user_repository, $user_validator);
+$phpmailer = new PHPMailer(true);
+$user = new UserController($user_repository, $user_validator, $phpmailer);
 
 switch ($url) {
     case 'register':
@@ -18,6 +20,10 @@ switch ($url) {
         $user->login();
     case 'forgotPassword':
         $user->forgotPassword();
+    case 'verifyToken':
+        $user->verifyToken($data);
+    case 'resetPassword':
+        $user->resetPassword($data);
     default:
         response([
             'status' => 'error',

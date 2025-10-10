@@ -5,16 +5,19 @@ namespace Devscode\Entreamigos\controllers;
 use Devscode\Entreamigos\repository\UserRepository;
 use Devscode\Entreamigos\validators\UserValidator;
 use PDO;
+use PHPMailer\PHPMailer\PHPMailer;
 
 class UserController{
 
     private UserValidator $user_validator;
     private UserRepository $user_repository;
+    private ?PHPMailer $phpmailer;
 
-    public function __construct(UserRepository $user_repository, UserValidator $user_validator)
+    public function __construct(UserRepository $user_repository, UserValidator $user_validator, ?PHPMailer $phpmailer)
     {
         $this->user_repository = $user_repository;
         $this->user_validator = $user_validator;
+        $this->phpmailer = $phpmailer;
     }
 
     public function register(): void {
@@ -75,7 +78,7 @@ class UserController{
         ], 500);
     }
 
-    public function registerFacility(): void{
+    public function registerFacility(): void {
         # Recibiendo datos
         $data = $_POST;
         $img = $_FILES;
@@ -137,7 +140,7 @@ class UserController{
         ], 500);
     }
 
-    public function login(): void{
+    public function login(): void {
         # Recibo la información
         $data = json_decode(file_get_contents("php://input"), true);
 
@@ -203,7 +206,7 @@ class UserController{
 
         $correo = sanitize_data($data['correo'], 'email');
 
-        if (!verificar_datos('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,10}', $correo) || strlen($correo) > 100) {
+        if (!validate_data('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,10}', $correo) || strlen($correo) > 100) {
             response([
                 'status' => 'error',
                 'message' => 'El campo correo contiene caracteres inválidos'
@@ -220,13 +223,135 @@ class UserController{
         $token = bin2hex(random_bytes(32));
         $expira = date('Y-m-d H:i:s', strtotime('+1 hour'));
 
+        if(!$this->user_repository->saveToken($correo, $token, $expira)){
+            response([
+                'status' => 'error',
+                'message' => 'Hubo un error al crear el token, por favor intentelo de nuevo'
+            ], 500);
+        }
+
+        submit_email($this->phpmailer, $correo, $token);
+
         response([
-            'token' => $token,
-            'expira' => $expira
-        ]);
+            'status' => 'ok',
+            'message' => 'El correo se ha enviado correctamente, por favor verifique en su bandeja de entrada'
+        ], 200);
     }
 
+    public function verifyToken(?array $data): void {
+        $respuesta = $this->verifyTokenFn($data);
+        if (!empty($respuesta['status']) && $respuesta['status'] === 'error') {
+            response([
+                'status' => $respuesta['status'],
+                'message' => $respuesta['message']
+            ], $respuesta['code']);
+        }
+
+        response([
+            'status' => 'ok',
+            'message' => 'El token existe'
+        ], 200);
+    }
     
+    public function resetPassword(?array $dataurl): void {
+        $respuesta = $this->verifyTokenFn($dataurl);
+        if (!empty($respuesta['status']) && $respuesta['status'] === 'error') {
+            response([
+                'status' => $respuesta['status'],
+                'message' => $respuesta['message']
+            ], $respuesta['code']);
+        }
+
+        if (!$this->user_repository->isUsedToken($dataurl['token'])) {
+            response([
+                'status' => 'error',
+                'message' => 'El token ya ha sido usado'
+            ]);
+        }
+
+        $data = json_decode(file_get_contents("php://input"), true);
+
+        if (!is_array($data) || count($data) === 0) {
+            response([
+                'status' => 'error',
+                'message' => 'No se recibió la información solicitada'
+            ], 400);
+        }
+
+        if (empty($data['contrasena'])) {
+            response([
+                'status' => 'error',
+                'message' => 'No se completo los campos que son obligatorios'
+            ], 422);
+        }
+
+        $contrasena = sanitize_data($data['contrasena']);
+
+        if (!validate_data('(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,60}', $contrasena)) {
+            response([
+                'status' => 'error',
+                'message' => 'El campo contraseña contiene caracteres inválidos'
+            ], 422);
+        }
+
+        $hash = password_hash($contrasena, PASSWORD_BCRYPT);
+
+        $respuesta = $this->user_repository->resetPassword($hash, $respuesta['correo'], $dataurl['token']);
+        if ($respuesta['status'] === 'error') {
+            response($respuesta, 500);
+        }
+
+        response($respuesta, 200);
+    }
+
+    public function verifyTokenFn(?array $data): array {
+        if (count($data) === 0) {
+            return  [
+                'status' => 'error',
+                'message' => 'No se recibió la información solicitada',
+                'code' => 400
+            ];
+        }
+
+        if (empty($data['token'])) {
+            return  [
+                'status' => 'error',
+                'message' => 'No se ha enviado el token, por favor intentelo de nuevo',
+                'code' => 422
+            ];
+        }
+
+        $token = sanitize_data($data['token']);
+        if (!validate_data('[a-f0-9]{64}', $token)) {
+            return  [
+                'status' => 'error',
+                'message' => 'El token contiene caracteres invalidos',
+                'code' => 422
+            ];
+        }
+
+        $respuesta = $this->user_repository->searchToken($token);
+        if(!$respuesta){
+            return [
+                'status' => 'error',
+                'message' => 'No existe el token',
+                'code' => 404
+            ];
+        }
+
+        if (strtotime($respuesta['expiracion']) < time()) {
+            return [
+                'status' => 'error',
+                'message' => 'El token a expirado',
+                'code' => 400
+            ];
+        }
+
+        return [
+            'correo' => $respuesta['correo']
+        ];
+    }
+
     // public function index() {
     //     echo json_encode([["id"=>1, "name"=>"Juan"], ["id"=>2, "name"=>"Ana"]]);
     // }

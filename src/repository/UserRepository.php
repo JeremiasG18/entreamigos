@@ -79,5 +79,67 @@ class UserRepository extends DBModel{
         $datos = $stmt->fetch(PDO::FETCH_ASSOC);
         return $datos['contrasena'];
     }
+
+    public function saveToken(string $correo, string $token, string $expira){
+        $sql = "INSERT INTO reseteos_contrasenas(correo, token, expiracion, usado) VALUE (:correo, :token, :expiracion, 0)";
+        $stmt = $this->con()->prepare($sql);
+        $row = $stmt->execute([
+            ':correo' => $correo, 
+            ':token' => $token, 
+            ':expiracion' => $expira
+        ]);
+        return $row;
+    }
+
+    public function searchToken(string $token) {
+        $sql = "SELECT correo, token, expiracion FROM reseteos_contrasenas WHERE token = :token";
+        $stmt = $this->con()->prepare($sql);
+        $stmt->execute([':token' => $token]);
+        $respuesta = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $respuesta;
+    }
+
+    public function resetPassword(string $contrasena, string $correo, string $token){
+        $sql = "UPDATE usuarios SET contrasena = :contrasena WHERE correo = :correo";
+        $stmt = $this->con()->prepare($sql);
+        $row = $stmt->execute([
+            ':contrasena' => $contrasena,
+            ':correo' => $correo
+        ]);
+
+        if (!$row) {
+            return [
+                'status' => 'error',
+                'message' => 'Error ocurrio un error inesperado, por favor intentelo nuevamente'
+            ];
+        }
+
+        $sql = "UPDATE reseteos_contrasenas SET usado = 1 WHERE token = :token";
+        $stmt = $this->con()->prepare($sql);
+        $row = $stmt->execute([':token' => $token]);
+
+        if (!$row) {
+            return [
+                'status' => 'error',
+                'message' => 'Error no se pudo resetear la contraseña, por favor intentelo nuevamente'
+            ];
+        }
+
+        return [
+            'status' => 'ok',
+            'message' => 'Se ha actualizado la contraseña correctamente!'
+        ];
+    }
+
+    public function isUsedToken(string $token) {
+        $sql = "SELECT usado FROM reseteos_contrasenas WHERE token = :token";
+        $stmt = $this->con()->prepare($sql);
+        $stmt->execute([':token' => $token]);
+        $datos = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($datos['usado'] === 1) {
+            return false;
+        }
+        return true;
+    }
     
 }

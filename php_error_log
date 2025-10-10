@@ -1648,3 +1648,94 @@ Stack trace:
 #4 F:\sys\entreamigos\index.php(40): Devscode\Entreamigos\controllers\RoutesController->post('iniciarSesion', '')
 #5 {main}
   thrown in F:\sys\entreamigos\src\helpers\helper.php on line 3
+[03-Oct-2025 22:25:56 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in F:\sys\entreamigos\src\controllers\UserController.php:265
+Stack trace:
+#0 F:\sys\entreamigos\src\routes\auth\registrarse.php(24): Devscode\Entreamigos\controllers\UserController->resetPassword('token=33583c3bb...')
+#1 F:\sys\entreamigos\src\controllers\RoutesController.php(17): require_once('F:\\sys\\entreami...')
+#2 F:\sys\entreamigos\index.php(33): Devscode\Entreamigos\controllers\RoutesController->get('resetPassword', 'token=33583c3bb...')
+#3 {main}
+  thrown in F:\sys\entreamigos\src\controllers\UserController.php on line 265
+[03-Oct-2025 22:27:12 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in F:\sys\entreamigos\src\controllers\UserController.php:265
+Stack trace:
+#0 F:\sys\entreamigos\src\routes\auth\registrarse.php(24): Devscode\Entreamigos\controllers\UserController->resetPassword('?token=33583c3b...')
+#1 F:\sys\entreamigos\src\controllers\RoutesController.php(17): require_once('F:\\sys\\entreami...')
+#2 F:\sys\entreamigos\index.php(33): Devscode\Entreamigos\controllers\RoutesController->get('resetPassword', '?token=33583c3b...')
+#3 {main}
+  thrown in F:\sys\entreamigos\src\controllers\UserController.php on line 265
+[03-Oct-2025 22:27:58 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Devscode\Entreamigos\controllers\UserController::resetPassword(): Argument #1 ($data) must be of type ?array, string given, called in F:\sys\entreamigos\src\routes\auth\registrarse.php on line 24 and defined in F:\sys\entreamigos\src\controllers\UserController.php:264
+Stack trace:
+#0 F:\sys\entreamigos\src\routes\auth\registrarse.php(24): Devscode\Entreamigos\controllers\UserController->resetPassword('?token=33583c3b...')
+#1 F:\sys\entreamigos\src\controllers\RoutesController.php(17): require_once('F:\\sys\\entreami...')
+#2 F:\sys\entreamigos\index.php(33): Devscode\Entreamigos\controllers\RoutesController->get('resetPassword', '?token=33583c3b...')
+#3 {main}
+  thrown in F:\sys\entreamigos\src\controllers\UserController.php on line 264
+[03-Oct-2025 22:28:25 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in F:\sys\entreamigos\index.php:32
+Stack trace:
+#0 {main}
+  thrown in F:\sys\entreamigos\index.php on line 32
+[03-Oct-2025 22:29:37 Europe/Berlin] PHP Warning:  Undefined variable $data in F:\sys\entreamigos\index.php on line 28
+[03-Oct-2025 22:29:37 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in F:\sys\entreamigos\index.php on line 28
+[03-Oct-2025 22:30:08 Europe/Berlin] PHP Warning:  Undefined array key "token" in F:\sys\entreamigos\index.php on line 28
+[03-Oct-2025 22:32:11 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Devscode\Entreamigos\controllers\UserController::resetPassword(): Argument #1 ($data) must be of type ?string, array given, called in F:\sys\entreamigos\src\routes\auth\registrarse.php on line 24 and defined in F:\sys\entreamigos\src\controllers\UserController.php:264
+Stack trace:
+#0 F:\sys\entreamigos\src\routes\auth\registrarse.php(24): Devscode\Entreamigos\controllers\UserController->resetPassword(Array)
+#1 F:\sys\entreamigos\src\controllers\RoutesController.php(17): require_once('F:\\sys\\entreami...')
+#2 F:\sys\entreamigos\index.php(35): Devscode\Entreamigos\controllers\RoutesController->get('resetPassword', Array)
+#3 {main}
+  thrown in F:\sys\entreamigos\src\controllers\UserController.php on line 264
+[04-Oct-2025 05:57:38 Europe/Berlin] PHP Warning:  Undefined array key "token" in F:\sys\entreamigos\src\controllers\UserController.php on line 243
+[04-Oct-2025 06:00:46 Europe/Berlin] PHP Warning:  Undefined array key "token" in F:\sys\entreamigos\src\controllers\UserController.php on line 243
+[04-Oct-2025 21:38:25 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'email' in 'field list' in F:\sys\entreamigos\src\repository\UserRepository.php:97
+Stack trace:
+#0 F:\sys\entreamigos\src\repository\UserRepository.php(97): PDOStatement->execute(Array)
+#1 F:\sys\entreamigos\src\controllers\UserController.php(333): Devscode\Entreamigos\repository\UserRepository->searchToken('33865a83a74597a...')
+#2 F:\sys\entreamigos\src\controllers\UserController.php(242): Devscode\Entreamigos\controllers\UserController->verifyTokenFn(Array)
+#3 F:\sys\entreamigos\src\routes\auth\registrarse.php(24): Devscode\Entreamigos\controllers\UserController->verifyToken(Array)
+#4 F:\sys\entreamigos\src\controllers\RoutesController.php(17): require_once('F:\\sys\\entreami...')
+#5 F:\sys\entreamigos\index.php(36): Devscode\Entreamigos\controllers\RoutesController->get('resetPassword', Array)
+#6 {main}
+  thrown in F:\sys\entreamigos\src\repository\UserRepository.php on line 97
+[04-Oct-2025 21:45:02 Europe/Berlin] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in F:\sys\entreamigos\vendor\phpmailer\phpmailer\src\SMTP.php on line 1331
+[04-Oct-2025 22:14:51 Europe/Berlin] PHP Warning:  Undefined array key "status" in F:\sys\entreamigos\src\controllers\UserController.php on line 243
+[04-Oct-2025 22:14:51 Europe/Berlin] PHP Warning:  Undefined array key "status" in F:\sys\entreamigos\src\controllers\UserController.php on line 251
+[04-Oct-2025 22:14:51 Europe/Berlin] PHP Warning:  Undefined array key "message" in F:\sys\entreamigos\src\controllers\UserController.php on line 252
+[04-Oct-2025 22:14:51 Europe/Berlin] PHP Warning:  Undefined array key "code" in F:\sys\entreamigos\src\controllers\UserController.php on line 253
+[04-Oct-2025 22:14:51 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: response(): Argument #2 ($statusCode) must be of type int, null given, called in F:\sys\entreamigos\src\controllers\UserController.php on line 250 and defined in F:\sys\entreamigos\src\helpers\helper.php:5
+Stack trace:
+#0 F:\sys\entreamigos\src\controllers\UserController.php(250): response(Array, NULL)
+#1 F:\sys\entreamigos\src\routes\auth\registrarse.php(24): Devscode\Entreamigos\controllers\UserController->verifyToken(Array)
+#2 F:\sys\entreamigos\src\controllers\RoutesController.php(17): require_once('F:\\sys\\entreami...')
+#3 F:\sys\entreamigos\index.php(36): Devscode\Entreamigos\controllers\RoutesController->get('resetPassword', Array)
+#4 {main}
+  thrown in F:\sys\entreamigos\src\helpers\helper.php on line 5
+[04-Oct-2025 22:15:15 Europe/Berlin] PHP Warning:  Undefined array key "status" in F:\sys\entreamigos\src\controllers\UserController.php on line 243
+[04-Oct-2025 22:15:15 Europe/Berlin] PHP Warning:  Undefined array key "status" in F:\sys\entreamigos\src\controllers\UserController.php on line 251
+[04-Oct-2025 22:15:15 Europe/Berlin] PHP Warning:  Undefined array key "message" in F:\sys\entreamigos\src\controllers\UserController.php on line 252
+[04-Oct-2025 22:15:15 Europe/Berlin] PHP Warning:  Undefined array key "code" in F:\sys\entreamigos\src\controllers\UserController.php on line 253
+[04-Oct-2025 22:15:15 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: response(): Argument #2 ($statusCode) must be of type int, null given, called in F:\sys\entreamigos\src\controllers\UserController.php on line 250 and defined in F:\sys\entreamigos\src\helpers\helper.php:5
+Stack trace:
+#0 F:\sys\entreamigos\src\controllers\UserController.php(250): response(Array, NULL)
+#1 F:\sys\entreamigos\src\routes\auth\registrarse.php(24): Devscode\Entreamigos\controllers\UserController->verifyToken(Array)
+#2 F:\sys\entreamigos\src\controllers\RoutesController.php(17): require_once('F:\\sys\\entreami...')
+#3 F:\sys\entreamigos\index.php(36): Devscode\Entreamigos\controllers\RoutesController->get('resetPassword', Array)
+#4 {main}
+  thrown in F:\sys\entreamigos\src\helpers\helper.php on line 5
+[04-Oct-2025 22:16:52 Europe/Berlin] PHP Warning:  Undefined array key "status" in F:\sys\entreamigos\src\controllers\UserController.php on line 251
+[04-Oct-2025 22:16:52 Europe/Berlin] PHP Warning:  Undefined array key "message" in F:\sys\entreamigos\src\controllers\UserController.php on line 252
+[04-Oct-2025 22:16:52 Europe/Berlin] PHP Warning:  Undefined array key "code" in F:\sys\entreamigos\src\controllers\UserController.php on line 253
+[04-Oct-2025 22:16:52 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: response(): Argument #2 ($statusCode) must be of type int, null given, called in F:\sys\entreamigos\src\controllers\UserController.php on line 250 and defined in F:\sys\entreamigos\src\helpers\helper.php:5
+Stack trace:
+#0 F:\sys\entreamigos\src\controllers\UserController.php(250): response(Array, NULL)
+#1 F:\sys\entreamigos\src\routes\auth\registrarse.php(24): Devscode\Entreamigos\controllers\UserController->verifyToken(Array)
+#2 F:\sys\entreamigos\src\controllers\RoutesController.php(17): require_once('F:\\sys\\entreami...')
+#3 F:\sys\entreamigos\index.php(36): Devscode\Entreamigos\controllers\RoutesController->get('resetPassword', Array)
+#4 {main}
+  thrown in F:\sys\entreamigos\src\helpers\helper.php on line 5
+[04-Oct-2025 22:42:30 Europe/Berlin] PHP Warning:  Undefined variable $phpmailer in F:\sys\entreamigos\src\routes\auth\getAuth.php on line 9
+[04-Oct-2025 22:42:51 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Devscode\Entreamigos\controllers\UserController::__construct(), 2 passed in F:\sys\entreamigos\src\routes\auth\getAuth.php on line 9 and exactly 3 expected in F:\sys\entreamigos\src\controllers\UserController.php:16
+Stack trace:
+#0 F:\sys\entreamigos\src\routes\auth\getAuth.php(9): Devscode\Entreamigos\controllers\UserController->__construct(Object(Devscode\Entreamigos\repository\UserRepository), Object(Devscode\Entreamigos\validators\UserValidator))
+#1 F:\sys\entreamigos\src\controllers\RoutesController.php(17): require_once('F:\\sys\\entreami...')
+#2 F:\sys\entreamigos\index.php(36): Devscode\Entreamigos\controllers\RoutesController->get('resetPassword', Array)
+#3 {main}
+  thrown in F:\sys\entreamigos\src\controllers\UserController.php on line 16
