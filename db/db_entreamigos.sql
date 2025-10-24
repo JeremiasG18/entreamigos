@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-09-2025 a las 02:59:16
+-- Tiempo de generación: 24-10-2025 a las 14:26:22
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -49,8 +49,16 @@ CREATE TABLE `complejos` (
   `longitud` varchar(100) DEFAULT NULL,
   `latitud` varchar(100) DEFAULT NULL,
   `foto_url` varchar(500) DEFAULT NULL,
-  `id_mp` int(11) NOT NULL
+  `id_mp` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `complejos`
+--
+
+INSERT INTO `complejos` (`id`, `id_usuario`, `nombre`, `telefono`, `ubicacion`, `longitud`, `latitud`, `foto_url`, `id_mp`) VALUES
+(4, 9, 'Futbol5 García', '3704603563', 'B° Los Inmigrantes Mz34 C35, 3600 Formosa', '-26.1494346', '-58.1576162', 'src/uploads/file_68eff2a7368569.03014081_fto.jpg', 243536343),
+(7, 10, 'La Diez', '3704802158', 'Coronel Bogado, Av. 12 de Octubre Barrio, P3600 IBU, Formosa', '-26.1909653', '-58.2300453', 'src/uploads/file_68f02832e2c0e8.20631461_la10.jpg', 682741578);
 
 -- --------------------------------------------------------
 
@@ -112,6 +120,31 @@ CREATE TABLE `reservas` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `reseteos_contrasenas`
+--
+
+CREATE TABLE `reseteos_contrasenas` (
+  `id` int(11) NOT NULL,
+  `correo` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `expiracion` datetime NOT NULL,
+  `usado` tinyint(1) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `reseteos_contrasenas`
+--
+
+INSERT INTO `reseteos_contrasenas` (`id`, `correo`, `token`, `expiracion`, `usado`) VALUES
+(1, 'benjA@gmail.com', '33865a83a74597a8014a643c220dcc1dee577dd683d343e0ef8a42cc1f5289f1', '2025-10-04 06:55:26', 1),
+(2, 'benjA@gmail.com', '37c4c0febd657883fb64127d6181f446a96da24c29f71efe3bb31b016e4a2a99', '2025-10-04 22:39:58', 1),
+(3, 'benjA@gmail.com', '28049924b87f037e7cbc42740733271dd91ecaf86769ff00b129e824bf1eceaf', '2025-10-04 23:14:17', 1),
+(4, 'jere@gmail.com', '24a11da06c69598bd235b012dbf1ea810f93e0e155aac6daa6d39f91380e57cd', '2025-10-04 23:29:31', 1),
+(5, 'jere@gmail.com', '9918bc9a7eac91ab32c60c860701f57d9b5754a666a8bd47591f069309fb00cc', '2025-10-13 15:10:31', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `roles`
 --
 
@@ -151,7 +184,7 @@ CREATE TABLE `usuarios` (
   `nombre` varchar(60) DEFAULT NULL,
   `apellido` varchar(60) DEFAULT NULL,
   `correo` varchar(100) DEFAULT NULL,
-  `contrasena` varchar(50) DEFAULT NULL
+  `contrasena` varchar(150) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -159,7 +192,10 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `id_roles`, `nombre`, `apellido`, `correo`, `contrasena`) VALUES
-(1, 2, 'Jeremias', 'Gonzalez', 'jeregonza194@gmail.com', '$2y$10$8hFFhmEjNNdYjuHOW26bG.O24dMxEFkqNUg9IX7parD');
+(7, 2, 'Benja', 'Gonzalez', 'benjA@gmail.com', '$2y$10$usM7bQ2hsSQmhhHMjesQKuwqMS5Fz8NZqMobLSSWhGWG.nMbtLTTi'),
+(8, 2, 'Jeremias', 'Gonzalez', 'jere@gmail.com', '$2y$10$i/GeQ6A21WnBUh7C8/h8RuH63lEZwnLQivXRg9tz2VSjLS6GEj0xG'),
+(9, 1, 'Leonardo', 'Gonzalez', 'leo@gmail.com', '$2y$10$AeLvJ1msZquXBN9L0IfCXetyNeVBEYvHwlrlk0AVpAcxh7rpe6Ve2'),
+(10, 1, 'Josue', 'Gonzalez', 'josu@gmail.com', '$2y$10$DrfyPybBi2bjhpbO.hXBXe7pAHoxMp0WdWGuJGDukgZS1qj/2LPCG');
 
 --
 -- Índices para tablas volcadas
@@ -178,7 +214,6 @@ ALTER TABLE `canchas`
 --
 ALTER TABLE `complejos`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_mp` (`id_mp`),
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
@@ -209,6 +244,12 @@ ALTER TABLE `reservas`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_usuario` (`id_usuario`),
   ADD KEY `id_cancha` (`id_cancha`);
+
+--
+-- Indices de la tabla `reseteos_contrasenas`
+--
+ALTER TABLE `reseteos_contrasenas`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `roles`
@@ -244,7 +285,7 @@ ALTER TABLE `canchas`
 -- AUTO_INCREMENT de la tabla `complejos`
 --
 ALTER TABLE `complejos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `disponibilidades`
@@ -271,6 +312,12 @@ ALTER TABLE `reservas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `reseteos_contrasenas`
+--
+ALTER TABLE `reseteos_contrasenas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT de la tabla `roles`
 --
 ALTER TABLE `roles`
@@ -286,7 +333,7 @@ ALTER TABLE `tipos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restricciones para tablas volcadas

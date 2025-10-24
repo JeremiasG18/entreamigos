@@ -1,5 +1,9 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
+
 function response(array $data, int $statusCode = 200){
     header('Content-Type: application/json; charset=utf-8');
     http_response_code($statusCode);
@@ -7,11 +11,11 @@ function response(array $data, int $statusCode = 200){
     exit;
 }
 
-function verificar_datos(string $filtro, mixed $cadena): bool {
+function validate_data(string $filtro, mixed $cadena): bool {
     return (bool) preg_match("/^" . $filtro . "$/", $cadena);
 }
 
-function sanitize_data(string $text, string $type = 'string'): mixed {
+function  sanitize_data(string $text, string $type = 'string'): mixed {
     $text = trim($text); // quita espacios extras
 
     switch ($type) {
@@ -79,4 +83,92 @@ function upload_image(array $img){
         'status' => 'ok',
         'url' => $rutaFinal
     ];
+}
+
+function submit_email(PHPMailer $phpmailer, string $correo, string $token){
+    
+    config_email($phpmailer, $correo);
+
+    // Contenido del correo
+    $phpmailer->isHTML(true);
+    $phpmailer->Subject = 'Recuperación de contraseña';
+    
+    // URL de tu API/frontend para restablecer
+    $url = "http://entreamigos.com/resetPassword/?token=" . urlencode($token);
+
+    $phpmailer->Body    = "
+        <h3>Hola</h3>
+        <p>Has solicitado restablecer tu contraseña. Haz clic en el siguiente enlace:</p>
+        <p><a href='$url'>$url</a></p>
+        <p>Este enlace expirará en 1 hora.</p>
+    ";
+
+    $phpmailer->AltBody = "Copia y pega este enlace en tu navegador: $url";
+
+    $phpmailer->send();
+}
+
+// function verify_email(PHPMailer $phpmailer, string $correo){
+//     config_email($phpmailer, $correo);
+    
+//     $phpmailer->isHTML(true);
+//     $phpmailer->Subject = 'Verificación de email';
+
+//     $phpmailer->Body    = "
+//         <h3>Hola</h3>
+//         <p>Haz verificado tu email con exito:</p>
+//         <p><a href='$url'>$url</a></p>
+//         <p>Este enlace expirará en 1 hora.</p>
+//     ";
+
+//     $phpmailer->AltBody = "Copia y pega este enlace en tu navegador: $url";
+
+//     $phpmailer->send();
+// }
+
+function config_email(PHPMailer $phpmailer, string $correo){
+    $phpmailer->isSMTP();
+    $phpmailer->Host = 'sandbox.smtp.mailtrap.io';
+    $phpmailer->SMTPAuth = true;
+    $phpmailer->Port = 2525;
+    $phpmailer->Username = 'd876c8061302d8';
+    $phpmailer->Password = '34385c198210cb';
+    $phpmailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+
+    $phpmailer->CharSet = 'UTF-8';
+    $phpmailer->Encoding = 'base64';
+    
+    $phpmailer->setFrom('entreamigos@gmail.com');
+    $phpmailer->addAddress($correo);
+}
+
+function validate_token(){
+    $headers = getallheaders();
+
+    if (!isset($headers['Authorization'])) {
+        response([
+            'status' => 'error',
+            'message' => 'Token no proporcionado',
+        ], 401);
+    }
+
+    list($type, $token) = explode(' ', $headers['Authorization']);
+
+    if (strcasecmp($type, 'Bearer') != 0) {
+        response([
+            'status' => 'error',
+            'message' => 'Formato de token inválido'
+        ], 400);
+    }
+
+    try {
+        $decoded = JWT::decode($token, new Key(APP_KEY, 'HS256'));
+        return $decoded;
+    } catch (Exception $e) {
+        response([
+            'status' => 'error',
+            'message' => 'Token inválido o expirado'
+        ], 401);
+    }
+    
 }
