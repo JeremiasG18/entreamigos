@@ -1739,3 +1739,325 @@ Stack trace:
 #2 F:\sys\entreamigos\index.php(36): Devscode\Entreamigos\controllers\RoutesController->get('resetPassword', Array)
 #3 {main}
   thrown in F:\sys\entreamigos\src\controllers\UserController.php on line 16
+[14-Oct-2025 20:40:53 America/Argentina/Buenos_Aires] PHP Warning:  Array to string conversion in F:\sys\entreamigos\index.php on line 17
+[14-Oct-2025 20:59:23 America/Argentina/Buenos_Aires] PHP Warning:  Undefined variable $secretKey in F:\sys\entreamigos\index.php on line 35
+[14-Oct-2025 20:59:23 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught TypeError: Key material must be a string, resource, or OpenSSLAsymmetricKey in F:\sys\entreamigos\vendor\firebase\php-jwt\src\Key.php:26
+Stack trace:
+#0 F:\sys\entreamigos\index.php(35): Firebase\JWT\Key->__construct(NULL, 'HS256')
+#1 {main}
+  thrown in F:\sys\entreamigos\vendor\firebase\php-jwt\src\Key.php on line 26
+[15-Oct-2025 14:16:14 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in F:\sys\entreamigos\src\controllers\UserController.php:20
+Stack trace:
+#0 F:\sys\entreamigos\src\routes\user\getUser.php(11): Devscode\Entreamigos\controllers\UserController->listFacilities()
+#1 F:\sys\entreamigos\src\controllers\RoutesController.php(13): require_once('F:\\sys\\entreami...')
+#2 F:\sys\entreamigos\index.php(38): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', Array)
+#3 {main}
+  thrown in F:\sys\entreamigos\src\controllers\UserController.php on line 20
+[15-Oct-2025 14:17:38 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in F:\sys\entreamigos\src\controllers\UserController.php:24
+Stack trace:
+#0 F:\sys\entreamigos\src\routes\user\getUser.php(11): Devscode\Entreamigos\controllers\UserController->listFacilities()
+#1 F:\sys\entreamigos\src\controllers\RoutesController.php(13): require_once('F:\\sys\\entreami...')
+#2 F:\sys\entreamigos\index.php(38): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', Array)
+#3 {main}
+  thrown in F:\sys\entreamigos\src\controllers\UserController.php on line 24
+[15-Oct-2025 14:17:40 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in F:\sys\entreamigos\src\controllers\UserController.php:24
+Stack trace:
+#0 F:\sys\entreamigos\src\routes\user\getUser.php(11): Devscode\Entreamigos\controllers\UserController->listFacilities()
+#1 F:\sys\entreamigos\src\controllers\RoutesController.php(13): require_once('F:\\sys\\entreami...')
+#2 F:\sys\entreamigos\index.php(38): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', Array)
+#3 {main}
+  thrown in F:\sys\entreamigos\src\controllers\UserController.php on line 24
+[15-Oct-2025 14:19:33 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ubicación' in 'field list' in F:\sys\entreamigos\src\repository\UserRepository.php:13
+Stack trace:
+#0 F:\sys\entreamigos\src\repository\UserRepository.php(13): PDOStatement->execute()
+#1 F:\sys\entreamigos\src\controllers\UserController.php(27): Devscode\Entreamigos\repository\UserRepository->getFacilityData()
+#2 F:\sys\entreamigos\src\routes\user\getUser.php(11): Devscode\Entreamigos\controllers\UserController->listFacilities()
+#3 F:\sys\entreamigos\src\controllers\RoutesController.php(13): require_once('F:\\sys\\entreami...')
+#4 F:\sys\entreamigos\index.php(38): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', Array)
+#5 {main}
+  thrown in F:\sys\entreamigos\src\repository\UserRepository.php on line 13
+[15-Oct-2025 15:58:55 America/Argentina/Buenos_Aires] PHP Warning:  Undefined variable $auth in F:\sys\entreamigos\src\routes\admin\postAdmin.php on line 13
+[15-Oct-2025 15:58:55 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught Error: Call to a member function registerFacility() on null in F:\sys\entreamigos\src\routes\admin\postAdmin.php:13
+Stack trace:
+#0 F:\sys\entreamigos\src\controllers\RoutesController.php(33): require_once()
+#1 F:\sys\entreamigos\index.php(41): Devscode\Entreamigos\controllers\RoutesController->post('registerFacilit...', Array)
+#2 {main}
+  thrown in F:\sys\entreamigos\src\routes\admin\postAdmin.php on line 13
+[15-Oct-2025 16:21:42 America/Argentina/Buenos_Aires] PHP Parse error:  syntax error, unexpected token "function", expecting "(" in F:\sys\entreamigos\src\repository\AdminRepository.php on line 13
+[15-Oct-2025 17:00:25 America/Argentina/Buenos_Aires] PHP Warning:  Undefined property: stdClass::$id_usuario in F:\sys\entreamigos\src\controllers\AdminController.php on line 111
+[15-Oct-2025 17:00:25 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught TypeError: Devscode\Entreamigos\repository\AdminRepository::getDataFacility(): Argument #1 ($id_usuario) must be of type int, null given, called in F:\sys\entreamigos\src\controllers\AdminController.php on line 111 and defined in F:\sys\entreamigos\src\repository\AdminRepository.php:10
+Stack trace:
+#0 F:\sys\entreamigos\src\controllers\AdminController.php(111): Devscode\Entreamigos\repository\AdminRepository->getDataFacility(NULL)
+#1 F:\sys\entreamigos\src\routes\admin\getAdmin.php(13): Devscode\Entreamigos\controllers\AdminController->facility()
+#2 F:\sys\entreamigos\src\controllers\RoutesController.php(15): require_once('F:\\sys\\entreami...')
+#3 F:\sys\entreamigos\index.php(38): Devscode\Entreamigos\controllers\RoutesController->get('registerFacilit...', Array)
+#4 {main}
+  thrown in F:\sys\entreamigos\src\repository\AdminRepository.php on line 10
+[15-Oct-2025 17:00:48 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught TypeError: Devscode\Entreamigos\repository\AdminRepository::getDataFacility(): Argument #1 ($id_usuario) must be of type int, string given, called in F:\sys\entreamigos\src\controllers\AdminController.php on line 107 and defined in F:\sys\entreamigos\src\repository\AdminRepository.php:10
+Stack trace:
+#0 F:\sys\entreamigos\src\controllers\AdminController.php(107): Devscode\Entreamigos\repository\AdminRepository->getDataFacility('leo@gmail.com')
+#1 F:\sys\entreamigos\src\routes\admin\getAdmin.php(13): Devscode\Entreamigos\controllers\AdminController->facility()
+#2 F:\sys\entreamigos\src\controllers\RoutesController.php(15): require_once('F:\\sys\\entreami...')
+#3 F:\sys\entreamigos\index.php(38): Devscode\Entreamigos\controllers\RoutesController->get('registerFacilit...', Array)
+#4 {main}
+  thrown in F:\sys\entreamigos\src\repository\AdminRepository.php on line 10
+[15-Oct-2025 19:12:41 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught TypeError: response(): Argument #1 ($data) must be of type array, null given, called in F:\sys\entreamigos\src\controllers\AuthController.php on line 316 and defined in F:\sys\entreamigos\src\helpers\helper.php:7
+Stack trace:
+#0 F:\sys\entreamigos\src\controllers\AuthController.php(316): response(NULL)
+#1 F:\sys\entreamigos\src\routes\auth\postAuth.php(26): Devscode\Entreamigos\controllers\AuthController->verifyEmail()
+#2 F:\sys\entreamigos\src\controllers\RoutesController.php(36): require_once('F:\\sys\\entreami...')
+#3 F:\sys\entreamigos\index.php(41): Devscode\Entreamigos\controllers\RoutesController->post('verifyEmail', Array)
+#4 {main}
+  thrown in F:\sys\entreamigos\src\helpers\helper.php on line 7
+[16-Oct-2025 10:20:15 America/Argentina/Buenos_Aires] PHP Warning:  Undefined array key "nombre" in F:\sys\entreamigos\src\controllers\UserController.php on line 37
+[16-Oct-2025 10:58:54 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught TypeError: Devscode\Entreamigos\controllers\RoutesController::get(): Argument #2 ($data) must be of type ?array, string given, called in F:\sys\entreamigos\index.php on line 39 and defined in F:\sys\entreamigos\src\controllers\RoutesController.php:7
+Stack trace:
+#0 F:\sys\entreamigos\index.php(39): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', '')
+#1 {main}
+  thrown in F:\sys\entreamigos\src\controllers\RoutesController.php on line 7
+[16-Oct-2025 13:57:07 America/Argentina/Buenos_Aires] PHP Warning:  Undefined array key "precio" in F:\sys\entreamigos\src\controllers\UserController.php on line 39
+[16-Oct-2025 13:57:07 America/Argentina/Buenos_Aires] PHP Warning:  Undefined array key 1 in F:\sys\entreamigos\src\controllers\UserController.php on line 45
+[16-Oct-2025 13:58:00 America/Argentina/Buenos_Aires] PHP Warning:  Undefined array key 1 in F:\sys\entreamigos\src\controllers\UserController.php on line 45
+[16-Oct-2025 14:01:45 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught TypeError: response(): Argument #1 ($data) must be of type array, string given, called in F:\sys\entreamigos\src\repository\UserRepository.php on line 17 and defined in F:\sys\entreamigos\src\helpers\helper.php:7
+Stack trace:
+#0 F:\sys\entreamigos\src\repository\UserRepository.php(17): response('Futbol5 Garc\xC3\xADa')
+#1 F:\sys\entreamigos\src\controllers\UserController.php(65): Devscode\Entreamigos\repository\UserRepository->getFacilityData(Array)
+#2 F:\sys\entreamigos\src\routes\user\getUser.php(11): Devscode\Entreamigos\controllers\UserController->listFacilities(Array)
+#3 F:\sys\entreamigos\src\controllers\RoutesController.php(13): require_once('F:\\sys\\entreami...')
+#4 F:\sys\entreamigos\index.php(39): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', Array)
+#5 {main}
+  thrown in F:\sys\entreamigos\src\helpers\helper.php on line 7
+[16-Oct-2025 14:05:57 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught TypeError: Illegal offset type in F:\sys\entreamigos\src\repository\UserRepository.php:15
+Stack trace:
+#0 F:\sys\entreamigos\src\controllers\UserController.php(65): Devscode\Entreamigos\repository\UserRepository->getFacilityData(Array)
+#1 F:\sys\entreamigos\src\routes\user\getUser.php(11): Devscode\Entreamigos\controllers\UserController->listFacilities(Array)
+#2 F:\sys\entreamigos\src\controllers\RoutesController.php(13): require_once('F:\\sys\\entreami...')
+#3 F:\sys\entreamigos\index.php(39): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', Array)
+#4 {main}
+  thrown in F:\sys\entreamigos\src\repository\UserRepository.php on line 15
+[16-Oct-2025 14:06:08 America/Argentina/Buenos_Aires] PHP Warning:  Undefined array key "nombre" in F:\sys\entreamigos\src\repository\UserRepository.php on line 15
+[16-Oct-2025 14:06:08 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught TypeError: response(): Argument #1 ($data) must be of type array, null given, called in F:\sys\entreamigos\src\repository\UserRepository.php on line 15 and defined in F:\sys\entreamigos\src\helpers\helper.php:7
+Stack trace:
+#0 F:\sys\entreamigos\src\repository\UserRepository.php(15): response(NULL)
+#1 F:\sys\entreamigos\src\controllers\UserController.php(65): Devscode\Entreamigos\repository\UserRepository->getFacilityData(Array)
+#2 F:\sys\entreamigos\src\routes\user\getUser.php(11): Devscode\Entreamigos\controllers\UserController->listFacilities(Array)
+#3 F:\sys\entreamigos\src\controllers\RoutesController.php(13): require_once('F:\\sys\\entreami...')
+#4 F:\sys\entreamigos\index.php(39): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', Array)
+#5 {main}
+  thrown in F:\sys\entreamigos\src\helpers\helper.php on line 7
+[16-Oct-2025 14:06:22 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught TypeError: response(): Argument #1 ($data) must be of type array, string given, called in F:\sys\entreamigos\src\repository\UserRepository.php on line 15 and defined in F:\sys\entreamigos\src\helpers\helper.php:7
+Stack trace:
+#0 F:\sys\entreamigos\src\repository\UserRepository.php(15): response('nombre')
+#1 F:\sys\entreamigos\src\controllers\UserController.php(65): Devscode\Entreamigos\repository\UserRepository->getFacilityData(Array)
+#2 F:\sys\entreamigos\src\routes\user\getUser.php(11): Devscode\Entreamigos\controllers\UserController->listFacilities(Array)
+#3 F:\sys\entreamigos\src\controllers\RoutesController.php(13): require_once('F:\\sys\\entreami...')
+#4 F:\sys\entreamigos\index.php(39): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', Array)
+#5 {main}
+  thrown in F:\sys\entreamigos\src\helpers\helper.php on line 7
+[16-Oct-2025 14:06:26 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught TypeError: response(): Argument #1 ($data) must be of type array, string given, called in F:\sys\entreamigos\src\repository\UserRepository.php on line 15 and defined in F:\sys\entreamigos\src\helpers\helper.php:7
+Stack trace:
+#0 F:\sys\entreamigos\src\repository\UserRepository.php(15): response('nombre')
+#1 F:\sys\entreamigos\src\controllers\UserController.php(65): Devscode\Entreamigos\repository\UserRepository->getFacilityData(Array)
+#2 F:\sys\entreamigos\src\routes\user\getUser.php(11): Devscode\Entreamigos\controllers\UserController->listFacilities(Array)
+#3 F:\sys\entreamigos\src\controllers\RoutesController.php(13): require_once('F:\\sys\\entreami...')
+#4 F:\sys\entreamigos\index.php(39): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', Array)
+#5 {main}
+  thrown in F:\sys\entreamigos\src\helpers\helper.php on line 7
+[16-Oct-2025 14:06:39 America/Argentina/Buenos_Aires] PHP Warning:  Trying to access array offset on value of type int in F:\sys\entreamigos\src\repository\UserRepository.php on line 15
+[16-Oct-2025 14:06:39 America/Argentina/Buenos_Aires] PHP Warning:  Undefined array key "" in F:\sys\entreamigos\src\repository\UserRepository.php on line 15
+[16-Oct-2025 14:06:39 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught TypeError: response(): Argument #1 ($data) must be of type array, null given, called in F:\sys\entreamigos\src\repository\UserRepository.php on line 15 and defined in F:\sys\entreamigos\src\helpers\helper.php:7
+Stack trace:
+#0 F:\sys\entreamigos\src\repository\UserRepository.php(15): response(NULL)
+#1 F:\sys\entreamigos\src\controllers\UserController.php(65): Devscode\Entreamigos\repository\UserRepository->getFacilityData(Array)
+#2 F:\sys\entreamigos\src\routes\user\getUser.php(11): Devscode\Entreamigos\controllers\UserController->listFacilities(Array)
+#3 F:\sys\entreamigos\src\controllers\RoutesController.php(13): require_once('F:\\sys\\entreami...')
+#4 F:\sys\entreamigos\index.php(39): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', Array)
+#5 {main}
+  thrown in F:\sys\entreamigos\src\helpers\helper.php on line 7
+[16-Oct-2025 14:07:02 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught TypeError: Illegal offset type in F:\sys\entreamigos\src\repository\UserRepository.php:15
+Stack trace:
+#0 F:\sys\entreamigos\src\controllers\UserController.php(65): Devscode\Entreamigos\repository\UserRepository->getFacilityData(Array)
+#1 F:\sys\entreamigos\src\routes\user\getUser.php(11): Devscode\Entreamigos\controllers\UserController->listFacilities(Array)
+#2 F:\sys\entreamigos\src\controllers\RoutesController.php(13): require_once('F:\\sys\\entreami...')
+#3 F:\sys\entreamigos\index.php(39): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', Array)
+#4 {main}
+  thrown in F:\sys\entreamigos\src\repository\UserRepository.php on line 15
+[16-Oct-2025 14:07:23 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught TypeError: Illegal offset type in F:\sys\entreamigos\src\repository\UserRepository.php:15
+Stack trace:
+#0 F:\sys\entreamigos\src\controllers\UserController.php(65): Devscode\Entreamigos\repository\UserRepository->getFacilityData(Array)
+#1 F:\sys\entreamigos\src\routes\user\getUser.php(11): Devscode\Entreamigos\controllers\UserController->listFacilities(Array)
+#2 F:\sys\entreamigos\src\controllers\RoutesController.php(13): require_once('F:\\sys\\entreami...')
+#3 F:\sys\entreamigos\index.php(39): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', Array)
+#4 {main}
+  thrown in F:\sys\entreamigos\src\repository\UserRepository.php on line 15
+[16-Oct-2025 14:07:25 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught TypeError: Illegal offset type in F:\sys\entreamigos\src\repository\UserRepository.php:15
+Stack trace:
+#0 F:\sys\entreamigos\src\controllers\UserController.php(65): Devscode\Entreamigos\repository\UserRepository->getFacilityData(Array)
+#1 F:\sys\entreamigos\src\routes\user\getUser.php(11): Devscode\Entreamigos\controllers\UserController->listFacilities(Array)
+#2 F:\sys\entreamigos\src\controllers\RoutesController.php(13): require_once('F:\\sys\\entreami...')
+#3 F:\sys\entreamigos\index.php(39): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', Array)
+#4 {main}
+  thrown in F:\sys\entreamigos\src\repository\UserRepository.php on line 15
+[16-Oct-2025 14:07:51 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught TypeError: response(): Argument #1 ($data) must be of type array, string given, called in F:\sys\entreamigos\src\repository\UserRepository.php on line 15 and defined in F:\sys\entreamigos\src\helpers\helper.php:7
+Stack trace:
+#0 F:\sys\entreamigos\src\repository\UserRepository.php(15): response('nombre')
+#1 F:\sys\entreamigos\src\controllers\UserController.php(65): Devscode\Entreamigos\repository\UserRepository->getFacilityData(Array)
+#2 F:\sys\entreamigos\src\routes\user\getUser.php(11): Devscode\Entreamigos\controllers\UserController->listFacilities(Array)
+#3 F:\sys\entreamigos\src\controllers\RoutesController.php(13): require_once('F:\\sys\\entreami...')
+#4 F:\sys\entreamigos\index.php(39): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', Array)
+#5 {main}
+  thrown in F:\sys\entreamigos\src\helpers\helper.php on line 7
+[16-Oct-2025 14:08:18 America/Argentina/Buenos_Aires] PHP Warning:  Trying to access array offset on value of type int in F:\sys\entreamigos\src\repository\UserRepository.php on line 15
+[16-Oct-2025 14:08:37 America/Argentina/Buenos_Aires] PHP Warning:  Trying to access array offset on value of type int in F:\sys\entreamigos\src\repository\UserRepository.php on line 15
+[16-Oct-2025 14:08:37 America/Argentina/Buenos_Aires] PHP Warning:  Undefined array key "" in F:\sys\entreamigos\src\repository\UserRepository.php on line 15
+[16-Oct-2025 14:08:37 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught TypeError: response(): Argument #1 ($data) must be of type array, null given, called in F:\sys\entreamigos\src\repository\UserRepository.php on line 15 and defined in F:\sys\entreamigos\src\helpers\helper.php:7
+Stack trace:
+#0 F:\sys\entreamigos\src\repository\UserRepository.php(15): response(NULL)
+#1 F:\sys\entreamigos\src\controllers\UserController.php(65): Devscode\Entreamigos\repository\UserRepository->getFacilityData(Array)
+#2 F:\sys\entreamigos\src\routes\user\getUser.php(11): Devscode\Entreamigos\controllers\UserController->listFacilities(Array)
+#3 F:\sys\entreamigos\src\controllers\RoutesController.php(13): require_once('F:\\sys\\entreami...')
+#4 F:\sys\entreamigos\index.php(39): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', Array)
+#5 {main}
+  thrown in F:\sys\entreamigos\src\helpers\helper.php on line 7
+[16-Oct-2025 14:08:43 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught TypeError: Illegal offset type in F:\sys\entreamigos\src\repository\UserRepository.php:15
+Stack trace:
+#0 F:\sys\entreamigos\src\controllers\UserController.php(65): Devscode\Entreamigos\repository\UserRepository->getFacilityData(Array)
+#1 F:\sys\entreamigos\src\routes\user\getUser.php(11): Devscode\Entreamigos\controllers\UserController->listFacilities(Array)
+#2 F:\sys\entreamigos\src\controllers\RoutesController.php(13): require_once('F:\\sys\\entreami...')
+#3 F:\sys\entreamigos\index.php(39): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', Array)
+#4 {main}
+  thrown in F:\sys\entreamigos\src\repository\UserRepository.php on line 15
+[16-Oct-2025 14:09:01 America/Argentina/Buenos_Aires] PHP Warning:  Trying to access array offset on value of type int in F:\sys\entreamigos\src\repository\UserRepository.php on line 15
+[16-Oct-2025 14:09:37 America/Argentina/Buenos_Aires] PHP Warning:  Undefined array key 0 in F:\sys\entreamigos\src\repository\UserRepository.php on line 15
+[16-Oct-2025 14:15:40 America/Argentina/Buenos_Aires] PHP Warning:  Undefined array key "value" in F:\sys\entreamigos\src\repository\UserRepository.php on line 15
+[16-Oct-2025 14:25:01 America/Argentina/Buenos_Aires] PHP Warning:  foreach() argument must be of type array|object, null given in F:\sys\entreamigos\src\repository\UserRepository.php on line 14
+[16-Oct-2025 14:25:35 America/Argentina/Buenos_Aires] PHP Warning:  foreach() argument must be of type array|object, null given in F:\sys\entreamigos\src\repository\UserRepository.php on line 14
+[16-Oct-2025 14:30:59 America/Argentina/Buenos_Aires] PHP Warning:  Undefined array key 1 in F:\sys\entreamigos\src\controllers\UserController.php on line 45
+[16-Oct-2025 14:43:10 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '%'-26.1909653'% OR latitud LIKE %'-58.2300453'%' at line 1 in F:\sys\entreamigos\src\repository\UserRepository.php:42
+Stack trace:
+#0 F:\sys\entreamigos\src\repository\UserRepository.php(42): PDOStatement->execute(Array)
+#1 F:\sys\entreamigos\src\controllers\UserController.php(65): Devscode\Entreamigos\repository\UserRepository->getFacilitiesByData(Array)
+#2 F:\sys\entreamigos\src\routes\user\getUser.php(11): Devscode\Entreamigos\controllers\UserController->listFacilities(Array)
+#3 F:\sys\entreamigos\src\controllers\RoutesController.php(13): require_once('F:\\sys\\entreami...')
+#4 F:\sys\entreamigos\index.php(39): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', Array)
+#5 {main}
+  thrown in F:\sys\entreamigos\src\repository\UserRepository.php on line 42
+[16-Oct-2025 14:45:25 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in F:\sys\entreamigos\src\repository\UserRepository.php:42
+Stack trace:
+#0 F:\sys\entreamigos\src\repository\UserRepository.php(42): PDOStatement->execute(Array)
+#1 F:\sys\entreamigos\src\controllers\UserController.php(65): Devscode\Entreamigos\repository\UserRepository->getFacilitiesByData(Array)
+#2 F:\sys\entreamigos\src\routes\user\getUser.php(11): Devscode\Entreamigos\controllers\UserController->listFacilities(Array)
+#3 F:\sys\entreamigos\src\controllers\RoutesController.php(13): require_once('F:\\sys\\entreami...')
+#4 F:\sys\entreamigos\index.php(39): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', Array)
+#5 {main}
+  thrown in F:\sys\entreamigos\src\repository\UserRepository.php on line 42
+[16-Oct-2025 14:51:44 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in F:\sys\entreamigos\src\repository\UserRepository.php:45
+Stack trace:
+#0 F:\sys\entreamigos\src\repository\UserRepository.php(45): PDOStatement->execute(Array)
+#1 F:\sys\entreamigos\src\controllers\UserController.php(65): Devscode\Entreamigos\repository\UserRepository->getFacilitiesByData(Array)
+#2 F:\sys\entreamigos\src\routes\user\getUser.php(11): Devscode\Entreamigos\controllers\UserController->listFacilities(Array)
+#3 F:\sys\entreamigos\src\controllers\RoutesController.php(13): require_once('F:\\sys\\entreami...')
+#4 F:\sys\entreamigos\index.php(39): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', Array)
+#5 {main}
+  thrown in F:\sys\entreamigos\src\repository\UserRepository.php on line 45
+[16-Oct-2025 14:51:56 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in F:\sys\entreamigos\src\repository\UserRepository.php:45
+Stack trace:
+#0 F:\sys\entreamigos\src\repository\UserRepository.php(45): PDOStatement->execute(Array)
+#1 F:\sys\entreamigos\src\controllers\UserController.php(65): Devscode\Entreamigos\repository\UserRepository->getFacilitiesByData(Array)
+#2 F:\sys\entreamigos\src\routes\user\getUser.php(11): Devscode\Entreamigos\controllers\UserController->listFacilities(Array)
+#3 F:\sys\entreamigos\src\controllers\RoutesController.php(13): require_once('F:\\sys\\entreami...')
+#4 F:\sys\entreamigos\index.php(39): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', Array)
+#5 {main}
+  thrown in F:\sys\entreamigos\src\repository\UserRepository.php on line 45
+[16-Oct-2025 14:53:02 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in F:\sys\entreamigos\src\repository\UserRepository.php:42
+Stack trace:
+#0 F:\sys\entreamigos\src\repository\UserRepository.php(42): PDOStatement->execute(Array)
+#1 F:\sys\entreamigos\src\controllers\UserController.php(65): Devscode\Entreamigos\repository\UserRepository->getFacilitiesByData(Array)
+#2 F:\sys\entreamigos\src\routes\user\getUser.php(11): Devscode\Entreamigos\controllers\UserController->listFacilities(Array)
+#3 F:\sys\entreamigos\src\controllers\RoutesController.php(13): require_once('F:\\sys\\entreami...')
+#4 F:\sys\entreamigos\index.php(39): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', Array)
+#5 {main}
+  thrown in F:\sys\entreamigos\src\repository\UserRepository.php on line 42
+[16-Oct-2025 15:00:18 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in F:\sys\entreamigos\src\repository\UserRepository.php:38
+Stack trace:
+#0 F:\sys\entreamigos\src\repository\UserRepository.php(38): PDOStatement->execute(Array)
+#1 F:\sys\entreamigos\src\controllers\UserController.php(65): Devscode\Entreamigos\repository\UserRepository->getFacilitiesByData(Array)
+#2 F:\sys\entreamigos\src\routes\user\getUser.php(11): Devscode\Entreamigos\controllers\UserController->listFacilities(Array)
+#3 F:\sys\entreamigos\src\controllers\RoutesController.php(13): require_once('F:\\sys\\entreami...')
+#4 F:\sys\entreamigos\index.php(39): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', Array)
+#5 {main}
+  thrown in F:\sys\entreamigos\src\repository\UserRepository.php on line 38
+[16-Oct-2025 15:00:42 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in F:\sys\entreamigos\src\repository\UserRepository.php:40
+Stack trace:
+#0 F:\sys\entreamigos\src\repository\UserRepository.php(40): PDOStatement->execute(Array)
+#1 F:\sys\entreamigos\src\controllers\UserController.php(65): Devscode\Entreamigos\repository\UserRepository->getFacilitiesByData(Array)
+#2 F:\sys\entreamigos\src\routes\user\getUser.php(11): Devscode\Entreamigos\controllers\UserController->listFacilities(Array)
+#3 F:\sys\entreamigos\src\controllers\RoutesController.php(13): require_once('F:\\sys\\entreami...')
+#4 F:\sys\entreamigos\index.php(39): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', Array)
+#5 {main}
+  thrown in F:\sys\entreamigos\src\repository\UserRepository.php on line 40
+[16-Oct-2025 15:01:10 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in F:\sys\entreamigos\src\repository\UserRepository.php:40
+Stack trace:
+#0 F:\sys\entreamigos\src\repository\UserRepository.php(40): PDOStatement->execute(Array)
+#1 F:\sys\entreamigos\src\controllers\UserController.php(65): Devscode\Entreamigos\repository\UserRepository->getFacilitiesByData(Array)
+#2 F:\sys\entreamigos\src\routes\user\getUser.php(11): Devscode\Entreamigos\controllers\UserController->listFacilities(Array)
+#3 F:\sys\entreamigos\src\controllers\RoutesController.php(13): require_once('F:\\sys\\entreami...')
+#4 F:\sys\entreamigos\index.php(39): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', Array)
+#5 {main}
+  thrown in F:\sys\entreamigos\src\repository\UserRepository.php on line 40
+[16-Oct-2025 15:17:27 America/Argentina/Buenos_Aires] PHP Warning:  Undefined array key 1 in F:\sys\entreamigos\src\controllers\UserController.php on line 47
+[16-Oct-2025 17:24:21 America/Argentina/Buenos_Aires] PHP Warning:  Undefined array key 4 in F:\sys\entreamigos\src\repository\UserRepository.php on line 20
+[16-Oct-2025 17:24:21 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught TypeError: response(): Argument #1 ($data) must be of type array, null given, called in F:\sys\entreamigos\src\repository\UserRepository.php on line 20 and defined in F:\sys\entreamigos\src\helpers\helper.php:7
+Stack trace:
+#0 F:\sys\entreamigos\src\repository\UserRepository.php(20): response(NULL)
+#1 F:\sys\entreamigos\src\controllers\UserController.php(74): Devscode\Entreamigos\repository\UserRepository->getFacilitiesByData(Array)
+#2 F:\sys\entreamigos\src\routes\user\getUser.php(11): Devscode\Entreamigos\controllers\UserController->listFacilities(Array)
+#3 F:\sys\entreamigos\src\controllers\RoutesController.php(13): require_once('F:\\sys\\entreami...')
+#4 F:\sys\entreamigos\index.php(39): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', Array)
+#5 {main}
+  thrown in F:\sys\entreamigos\src\helpers\helper.php on line 7
+[16-Oct-2025 17:24:39 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught TypeError: response(): Argument #1 ($data) must be of type array, string given, called in F:\sys\entreamigos\src\repository\UserRepository.php on line 20 and defined in F:\sys\entreamigos\src\helpers\helper.php:7
+Stack trace:
+#0 F:\sys\entreamigos\src\repository\UserRepository.php(20): response('-58.2300453')
+#1 F:\sys\entreamigos\src\controllers\UserController.php(74): Devscode\Entreamigos\repository\UserRepository->getFacilitiesByData(Array)
+#2 F:\sys\entreamigos\src\routes\user\getUser.php(11): Devscode\Entreamigos\controllers\UserController->listFacilities(Array)
+#3 F:\sys\entreamigos\src\controllers\RoutesController.php(13): require_once('F:\\sys\\entreami...')
+#4 F:\sys\entreamigos\index.php(39): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', Array)
+#5 {main}
+  thrown in F:\sys\entreamigos\src\helpers\helper.php on line 7
+[16-Oct-2025 17:24:58 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught TypeError: response(): Argument #1 ($data) must be of type array, string given, called in F:\sys\entreamigos\src\repository\UserRepository.php on line 20 and defined in F:\sys\entreamigos\src\helpers\helper.php:7
+Stack trace:
+#0 F:\sys\entreamigos\src\repository\UserRepository.php(20): response('-58.2300453')
+#1 F:\sys\entreamigos\src\controllers\UserController.php(74): Devscode\Entreamigos\repository\UserRepository->getFacilitiesByData(Array)
+#2 F:\sys\entreamigos\src\routes\user\getUser.php(11): Devscode\Entreamigos\controllers\UserController->listFacilities(Array)
+#3 F:\sys\entreamigos\src\controllers\RoutesController.php(13): require_once('F:\\sys\\entreami...')
+#4 F:\sys\entreamigos\index.php(39): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', Array)
+#5 {main}
+  thrown in F:\sys\entreamigos\src\helpers\helper.php on line 7
+[16-Oct-2025 17:25:25 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1305 FUNCTION db_entreamigos.foto_url does not exist in F:\sys\entreamigos\src\repository\UserRepository.php:41
+Stack trace:
+#0 F:\sys\entreamigos\src\repository\UserRepository.php(41): PDOStatement->execute(Array)
+#1 F:\sys\entreamigos\src\controllers\UserController.php(74): Devscode\Entreamigos\repository\UserRepository->getFacilitiesByData(Array)
+#2 F:\sys\entreamigos\src\routes\user\getUser.php(11): Devscode\Entreamigos\controllers\UserController->listFacilities(Array)
+#3 F:\sys\entreamigos\src\controllers\RoutesController.php(13): require_once('F:\\sys\\entreami...')
+#4 F:\sys\entreamigos\index.php(39): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', Array)
+#5 {main}
+  thrown in F:\sys\entreamigos\src\repository\UserRepository.php on line 41
+[16-Oct-2025 17:26:11 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1305 FUNCTION db_entreamigos.foto_url does not exist in F:\sys\entreamigos\src\repository\UserRepository.php:41
+Stack trace:
+#0 F:\sys\entreamigos\src\repository\UserRepository.php(41): PDOStatement->execute(Array)
+#1 F:\sys\entreamigos\src\controllers\UserController.php(74): Devscode\Entreamigos\repository\UserRepository->getFacilitiesByData(Array)
+#2 F:\sys\entreamigos\src\routes\user\getUser.php(11): Devscode\Entreamigos\controllers\UserController->listFacilities(Array)
+#3 F:\sys\entreamigos\src\controllers\RoutesController.php(13): require_once('F:\\sys\\entreami...')
+#4 F:\sys\entreamigos\index.php(39): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', Array)
+#5 {main}
+  thrown in F:\sys\entreamigos\src\repository\UserRepository.php on line 41
+[16-Oct-2025 17:26:41 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1305 FUNCTION db_entreamigos.longitud does not exist in F:\sys\entreamigos\src\repository\UserRepository.php:41
+Stack trace:
+#0 F:\sys\entreamigos\src\repository\UserRepository.php(41): PDOStatement->execute(Array)
+#1 F:\sys\entreamigos\src\controllers\UserController.php(74): Devscode\Entreamigos\repository\UserRepository->getFacilitiesByData(Array)
+#2 F:\sys\entreamigos\src\routes\user\getUser.php(11): Devscode\Entreamigos\controllers\UserController->listFacilities(Array)
+#3 F:\sys\entreamigos\src\controllers\RoutesController.php(13): require_once('F:\\sys\\entreami...')
+#4 F:\sys\entreamigos\index.php(39): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', Array)
+#5 {main}
+  thrown in F:\sys\entreamigos\src\repository\UserRepository.php on line 41

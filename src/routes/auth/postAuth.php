@@ -1,29 +1,29 @@
 <?php
 
-use Devscode\Entreamigos\controllers\UserController;
-use Devscode\Entreamigos\repository\UserRepository;
-use Devscode\Entreamigos\validators\UserValidator;
+use Devscode\Entreamigos\controllers\AuthController;
+use Devscode\Entreamigos\repository\AuthRepository;
+use Devscode\Entreamigos\validators\AuthValidator;
 use PHPMailer\PHPMailer\PHPMailer;
 
-$user_repository = new UserRepository;
-$user_validator = new UserValidator;
+$auth_repository = new AuthRepository;
+$auth_validator = new AuthValidator;
 $phpmailer = new PHPMailer(true);
-$user = new UserController($user_repository, $user_validator, $phpmailer);
+$auth = new AuthController($auth_repository, $auth_validator, $phpmailer);
 
 switch ($url) {
     case 'register':
-        $user->register();
+        $auth->register();
         break;
-    case 'registerFacility':
-        $user->registerFacility();
     case 'login':
-        $user->login();
+        $auth->login();
     case 'forgotPassword':
-        $user->forgotPassword();
+        $auth->forgotPassword();
     case 'verifyToken':
-        $user->verifyToken($data);
+        $auth->verifyToken($data);
     case 'resetPassword':
-        $user->resetPassword($data);
+        $auth->resetPassword($data);
+    case 'verifyEmail':
+        $auth->verifyEmail();
     default:
         response([
             'status' => 'error',
