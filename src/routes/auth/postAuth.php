@@ -16,18 +16,24 @@ switch ($url) {
         break;
     case 'login':
         $auth->login();
+        break;
     case 'forgotPassword':
         $auth->forgotPassword();
+        break;
     case 'verifyToken':
         $auth->verifyToken($data);
+        break;
     case 'resetPassword':
         $auth->resetPassword($data);
+        break;
     case 'verifyEmail':
         $auth->verifyEmail();
+        break;
     default:
         response([
             'status' => 'error',
             'message' => 'url no encontrado'
         ], 404);
         break;
+
 }
