@@ -25,7 +25,7 @@ class RoutesController{
     public function post(string $url, ?array $data){
         $let_url_u = [''];
         $let_url_a = ['registerFacility'];
-        $other_url = ['register', 'login', 'verifyToken', 'forgotPassword', 'resetPassword', 'verifyEmail'];
+        $other_url = ['register', 'login', 'verifyToken', 'forgotPassword', 'resetPassword', 'verifyEmail', 'logout'];
 
         if (in_array($url, $let_url_u)) {
              

@@ -12,6 +12,8 @@ ini_set('error_log', __DIR__.'/php_error_log');
 
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
 $method = $_SERVER['REQUEST_METHOD'];
 

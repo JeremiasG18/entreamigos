@@ -78,6 +78,7 @@ class AuthController{
     }
 
     public function login(): void {
+
         # Recibo la información
         $data = json_decode(file_get_contents("php://input"), true);
 
@@ -120,29 +121,37 @@ class AuthController{
 
         $usuario = $this->auth_repository->getDataUser($correo);
 
-        $key = APP_KEY;
+        $userAgent = $_SERVER['HTTP_USER_AGENT'];
 
-        $payload = [
-            'id' => $usuario['id'],
-            'email' => $correo,
-            'rol' => $usuario['id_roles'],
-            'iat' => time(),
-            'exp' => time() + 86400,
-        ];
-
-        $jwt = JWT::encode($payload, $key, 'HS256');
-        
-        response([
-            'status' => 'ok',
-            'message' => 'El usuario ha iniciado sesion',
-            'token' => $jwt,
-            'usuario' => [
+        if (($usuario['id_roles'] === 1 && strpos($userAgent, 'Mozilla') !== false) || $usuario['id_roles'] === 2 && strpos($userAgent, 'okhttp') !== false) {
+            $key = APP_KEY;
+    
+            $payload = [
                 'id' => $usuario['id'],
                 'email' => $correo,
                 'rol' => $usuario['id_roles'],
-            ]
-        ], 200);
-        
+                'iat' => time(),
+                'exp' => time() + 86400,
+            ];
+    
+            $jwt = JWT::encode($payload, $key, 'HS256');
+            
+            response([
+                'status' => 'ok',
+                'message' => 'El usuario ha iniciado sesion',
+                'token' => $jwt,
+                'usuario' => [
+                    'id' => $usuario['id'],
+                    'email' => $correo,
+                    'rol' => $usuario['id_roles'],
+                ]
+            ], 200);
+        }else{
+            response([
+                'status' => 'error',
+                'message' => 'Los administradores solo pueden ingresar desde la web y los usuarios solo desde la app.'
+            ], 401);
+        } 
     }
 
     public function forgotPassword(): void {

@@ -74,7 +74,6 @@ class UserController{
         $complejos = $this->user_repository->getFacilitiesByData($datos);
 
 
-
         // if (!empty($data['nombre']) && empty($data['ubicacion']) && empty($data['tipo']) && empty($data['precio'])) {
 
         // }
@@ -87,11 +86,7 @@ class UserController{
             // }
         // }
 
-        response([$data['nombre']]);
-
-        // if($data['nombre'])
-
-        response($data);
+        response($data, 200);
 
     }
     

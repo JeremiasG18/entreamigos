@@ -16,7 +16,7 @@ function validate_data(string $filtro, mixed $cadena): bool {
 }
 
 function  sanitize_data(string $text, string $type = 'string'): mixed {
-    $text = trim($text); // quita espacios extras
+    $text = trim($text);
 
     switch ($type) {
         case 'int':
@@ -94,7 +94,7 @@ function submit_email(PHPMailer $phpmailer, string $correo, string $token){
     $phpmailer->Subject = 'Recuperación de contraseña';
     
     // URL de tu API/frontend para restablecer
-    $url = "http://entreamigos.com/resetPassword/?token=" . urlencode($token);
+    $url = "http://127.0.0.1:5500/html/auth/resetPassword.html?token=" . urlencode($token);
 
     $phpmailer->Body    = "
         <h3>Hola</h3>
