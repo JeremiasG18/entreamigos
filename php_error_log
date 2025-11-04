@@ -2061,3 +2061,9 @@ Stack trace:
 #4 F:\sys\entreamigos\index.php(39): Devscode\Entreamigos\controllers\RoutesController->get('listFacilities', Array)
 #5 {main}
   thrown in F:\sys\entreamigos\src\repository\UserRepository.php on line 41
+[30-Oct-2025 21:06:25 America/Argentina/Buenos_Aires] PHP Warning:  Undefined array key "HTTP_USER_AGENT" in C:\Users\JEREMIAS\Documents\sys\entreamigos\src\controllers\AuthController.php on line 124
+[30-Oct-2025 21:07:33 America/Argentina/Buenos_Aires] PHP Warning:  Undefined array key "HTTP_USER_AGENT" in C:\Users\JEREMIAS\Documents\sys\entreamigos\src\controllers\AuthController.php on line 124
+[30-Oct-2025 21:10:22 America/Argentina/Buenos_Aires] PHP Warning:  Undefined array key "HTTP_USER_AGENT" in C:\Users\JEREMIAS\Documents\sys\entreamigos\src\controllers\AuthController.php on line 124
+[30-Oct-2025 21:10:44 America/Argentina/Buenos_Aires] PHP Warning:  Undefined array key "HTTP_USER_AGENT" in C:\Users\JEREMIAS\Documents\sys\entreamigos\src\controllers\AuthController.php on line 124
+[30-Oct-2025 21:10:53 America/Argentina/Buenos_Aires] PHP Warning:  Undefined array key "HTTP_USER_AGENT" in C:\Users\JEREMIAS\Documents\sys\entreamigos\src\controllers\AuthController.php on line 124
+[30-Oct-2025 21:13:02 America/Argentina/Buenos_Aires] PHP Warning:  Undefined array key "HTTP_USER_AGENT" in C:\Users\JEREMIAS\Documents\sys\entreamigos\src\controllers\AuthController.php on line 124

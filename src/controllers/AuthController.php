@@ -149,7 +149,7 @@ class AuthController{
         }else{
             response([
                 'status' => 'error',
-                'message' => 'Los administradores solo pueden ingresar desde la web y los usuarios solo desde la app.'
+                'message' => 'Los administradores solo pueden ingresar desde la web y los usuarios solo desde la app móvil'
             ], 401);
         } 
     }

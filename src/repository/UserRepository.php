@@ -17,9 +17,9 @@ class UserRepository extends DBModel{
 
     public function getFacilitiesByData(?array $datos) {
 
-        // response([$datos[3]['valor']]);
-
         $sql = empty($datos[3]['valor']) ? "SELECT id, nombre, ubicacion, foto_url FROM complejos" : "SELECT id, nombre, ubicacion, foto_url, latitud, longitud, (6371 * acos(cos(radians(:latitud)) * cos(radians(latitud)) * cos(radians(longitud) - radians(:longitud)) + sin(radians(:latitud)) * sin(radians(latitud)))) AS distancia FROM complejos";
+
+        response([$sql]);
 
         $data = [];
         $i = 0;
